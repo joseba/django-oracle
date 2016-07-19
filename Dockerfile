@@ -9,8 +9,8 @@ ENV PYTZ_VERSION=2016.6.1
 
 # install oracle & dependencies & utils
 RUN apt-get update && apt-get install -y \
-  alien
-  libaio1
+  alien \
+  libaio1 \
   vim
 
 COPY client.rpm /tmp/
