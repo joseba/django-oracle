@@ -6,7 +6,9 @@ ENV GUNICORN_VERSION=19.6.0
 ENV DJANGO_VERSION=1.9.8
 ENV PYTZ_VERSION=2016.6.1
 
+
 # install oracle & dependencies
+COPY client.rpm /tmp/
 RUN apt-get update && apt-get install -y \
   alien
 
