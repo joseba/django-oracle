@@ -13,6 +13,11 @@ RUN apt-get update && apt-get install -y \
   libaio1
   vim
 
+COPY client.rpm /tmp/
+COPY client-sdk.rpm /tmp/
+
+RUN alien -i /tmp/client.rpm /tmp/client-sdk.rpm
+
 # create directory which can be a place for generated static content
 # volume can be used to serve these files with a webserver
 RUN mkdir -p /var/www/static
@@ -31,7 +36,7 @@ COPY gunicorn.conf /etc/gunicorn/
 RUN pip install gunicorn==$GUNICORN_VERSION
 RUN pip install django==$DJANGO_VERSION
 RUN pip install pytz==$PYTZ_VERSION
-# RUN pip install cx_Oracle
+RUN pip install cx_Oracle
 
 # run start.sh on container start
 COPY start.sh /usr/django/
