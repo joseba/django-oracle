@@ -33,13 +33,13 @@ RUN mkdir -p /etc/gunicorn
 COPY gunicorn.conf /etc/gunicorn/
 
 # install oracle client, gunicorn, django and pytz
-# RUN pip install gunicorn==$GUNICORN_VERSION
-# RUN pip install django==$DJANGO_VERSION
-# RUN pip install pytz==$PYTZ_VERSION
-RUN pip install gunicorn
-RUN pip install django
-RUN pip install pytz
-RUN pip install cx_Oracle
+RUN pip install gunicorn==$GUNICORN_VERSION
+RUN pip install django==$DJANGO_VERSION
+RUN pip install pytz==$PYTZ_VERSION
+#RUN pip install gunicorn
+#RUN pip install django
+#RUN pip install pytz
+#RUN pip install cx_Oracle
 
 # run start.sh on container start
 COPY start.sh /usr/django/
