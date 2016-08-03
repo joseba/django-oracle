@@ -50,4 +50,4 @@ RUN pip install cx_Oracle
 #CMD bash start.sh
 
 EXPOSE 8000
-CMD ["supervisord", "-n"]
+CMD ["supervisord", "-n", "-c", "/etc/supervisor/supervisord.conf"]
