@@ -21,7 +21,7 @@ RUN alien -i /tmp/client.rpm /tmp/client-sdk.rpm
 # setup all the configfiles
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 COPY nginx.conf /etc/nginx/sites-available/default
-COPY supervisor.conf /etc/supervisor/conf.d/
+COPY supervisord.conf /etc/supervisor/conf.d/
 RUN mkdir -p /etc/gunicorn
 COPY gunicorn.conf /etc/gunicorn/
 
