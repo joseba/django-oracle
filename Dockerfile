@@ -9,7 +9,6 @@ ENV PYTZ_VERSION=2016.6.1
 RUN apt-get update && apt-get install -y \
   alien \
   nginx \
-  supervisor \
   libaio1 \
   vim
 
@@ -24,6 +23,7 @@ COPY nginx.conf /etc/nginx/sites-available/default
 COPY supervisord.conf /etc/supervisor/conf.d/
 RUN mkdir -p /etc/gunicorn
 COPY gunicorn.conf /etc/gunicorn/
+RUN mkdir /var/log/supervisor
 
 # create directory which can be a place for generated static content
 RUN mkdir -p /usr/django/static
@@ -38,6 +38,7 @@ VOLUME /usr/django/app
 #RUN pip install gunicorn==$GUNICORN_VERSION
 #RUN pip install django==$DJANGO_VERSION
 #RUN pip install pytz==$PYTZ_VERSION
+RUN pip install supervisor
 RUN pip install gunicorn
 RUN pip install django
 RUN pip install pytz
