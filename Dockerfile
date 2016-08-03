@@ -20,7 +20,7 @@ RUN alien -i /tmp/client.rpm /tmp/client-sdk.rpm
 # setup all the configfiles
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 COPY nginx.conf /etc/nginx/sites-available/default
-COPY supervisord.conf /etc/supervisor/conf.d/
+COPY supervisord.conf /etc/supervisor/
 RUN mkdir -p /etc/gunicorn
 COPY gunicorn.conf /etc/gunicorn/
 RUN mkdir /var/log/supervisor
@@ -34,7 +34,7 @@ RUN mkdir -p /usr/django/media
 RUN mkdir -p /usr/django/app
 VOLUME /usr/django/app
 
-# install oracle client, gunicorn, django and pytz
+# install python packages
 #RUN pip install gunicorn==$GUNICORN_VERSION
 #RUN pip install django==$DJANGO_VERSION
 #RUN pip install pytz==$PYTZ_VERSION
