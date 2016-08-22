@@ -36,6 +36,7 @@ RUN pip install cx_Oracle
 RUN pip install djangorestframework
 RUN pip install markdown       
 RUN pip install django-filter
+RUN pip install httpie
 
 EXPOSE 8000
 CMD ["supervisord", "-n", "-c", "/etc/supervisor/supervisord.conf"]
