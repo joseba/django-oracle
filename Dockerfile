@@ -33,6 +33,9 @@ RUN pip install gunicorn
 RUN pip install django
 RUN pip install pytz
 RUN pip install cx_Oracle
+RUN pip install djangorestframework
+RUN pip install markdown       
+RUN pip install django-filter
 
 EXPOSE 8000
 CMD ["supervisord", "-n", "-c", "/etc/supervisor/supervisord.conf"]
