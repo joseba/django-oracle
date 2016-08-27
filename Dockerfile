@@ -37,6 +37,8 @@ RUN pip install djangorestframework
 RUN pip install markdown       
 RUN pip install django-filter
 RUN pip install httpie
+RUN pip install coreapi
+RUN pip install coreapi-cli
 
 EXPOSE 8000
 CMD ["supervisord", "-n", "-c", "/etc/supervisor/supervisord.conf"]
