@@ -39,6 +39,7 @@ RUN pip install django-filter
 RUN pip install httpie
 RUN pip install coreapi
 RUN pip install coreapi-cli
+RUN pip install django-excel
 
 EXPOSE 8000
 CMD ["supervisord", "-n", "-c", "/etc/supervisor/supervisord.conf"]
