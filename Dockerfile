@@ -41,6 +41,7 @@ RUN pip install coreapi
 RUN pip install coreapi-cli
 RUN pip install --upgrade setuptools
 RUN pip install django-excel
+RUN pip install pyexcel-xls
 
 EXPOSE 8000
 CMD ["supervisord", "-n", "-c", "/etc/supervisor/supervisord.conf"]
